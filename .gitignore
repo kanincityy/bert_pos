@@ -1,0 +1,62 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+.venv/
+venv/
+env/
+ENV/
+virtualenv/
+virtualenvs/
+
+# Distribution / packaging
+.dist/
+build/
+develop-eggs/
+eggs/
+*.egg-info/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg
+
+# Installer logs
+.install.log
+pip-log.txt
+pip-delete-this.txt
+
+# Unit test / coverage reports
+.tox/
+.coverage
+.coverage.*
+nosetests.xml
+coverage.xml
+*.cover
+*.lcov
+.pytest_cache/
+htmlcov/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environments
+.env
+.flaskenv
+
+# Log files
+*.log
+
+# Model files
+models/*.pth
+models/*.ckpt
+
+# Data files that are created during processing.
+data/*.pt

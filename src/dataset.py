@@ -1,14 +1,6 @@
-# Import relevant libraries & functions
-from scripts.read_conllu_file import read_conllu_file
-import scripts.imports as imports
-
-# Load the training data
-train_data_sentences, unique_labels = read_conllu_file("data/en_ewt-ud-train.conllu")
-# Creating a label2index dictionary
-label2index = {}
-# Populate `label2index`
-for i, label in enumerate(unique_labels):
-  label2index[label] = i
+import torch
+from torch.utils.data import Dataset, DataLoader
+from transformers import PreTrainedTokenizer
 
 # Define Dataset class
 class BertPOSDataset(Dataset):
@@ -76,10 +68,3 @@ class BertPOSDataset(Dataset):
             'attention_mask': attention_mask,
             'labels': labels}
     
-
-# Load the tokeniser for the model "google-bert/bert-base-cased"
-tokenizer = AutoTokenizer.from_pretrained("google-bert/bert-base-cased")
-
-# Prepare the training dataset using our dataset class
-train_dataset = BertPOSDataset(train_data_sentences, tokenizer, label2index, max_length=512)
-
