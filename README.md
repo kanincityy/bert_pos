@@ -1,80 +1,89 @@
-# BERT Part-of-Speech Tagging
+# BERT Fine-Tuning for Part-of-Speech (POS) Tagging (PyTorch & Hugging Face)
 
-This project implements a **part-of-speech (POS) tagging model** that utilizes a fine-tuned BERT (Bidirectional Encoder Representations from Transformers) model. It processes sentence data in **CONLL-U format** and predicts syntactic dependencies between words in a sentence.
+This repository contains a project implementing Part-of-Speech (POS) tagging using a fine-tuned BERT model (`bert-base-uncased` or similar). The model processes sentences in **CONLL-U format** and assigns a grammatical tag (e.g., Noun, Verb, Adjective) to each token.
 
-## Project Overview
+This project utilises PyTorch and Hugging Face libraries (`transformers`, `datasets`).
 
-The model is designed to accurately assign POS tags to words in a sentence. It leverages the power of pretrained BERT embeddings and fine-tuning for effective training. The trained model can be used to predict POS tags for new sentences.
+---
 
-## Files and Structure
+### ✨ Key Features & Implementation Details
 
-- `data/`: Contains the training (`train.conllu`) and development (`dev.conllu`) datasets in CONLL-U format.
-- `models/`: Stores the saved trained model (`pos_tagging_model.pth`).
-- `src/`: Contains the Python source code.
-    - `dataset.py`: Defines the `BertPOSDataset` for data loading and tokenization.
-    - `model.py`: Defines the `BertPOSModel` using `BertForTokenClassification`.
-    - `trainer.py`: Implements the `Trainer` class for model training and evaluation.
-    - `utils.py`: Contains utility functions, such as `read_conllu_file`.
-    - `main.py`: The core script that orchestrates the training and evaluation process.
-- `requirements.txt`: Lists the project's dependencies.
-- `README.md`: This file, providing project information.
-- `.gitignore`: Specifies files to be ignored by Git.
+*   **Task:** Part-of-Speech (POS) Tagging on the token level.
+*   **Model:** Leverages a pre-trained BERT model fine-tuned specifically for token classification using `BertForTokenClassification` from the Hugging Face `transformers` library.
+*   **Data Format:** Processes input data structured in the standard **CONLL-U format**.
+*   **Custom Components:** Includes:
+    *   `BertPOSDataset` (`src/dataset.py`): Custom PyTorch Dataset for handling CONLL-U data loading, tokenization alignment, and tag mapping.
+    *   `BertPOSModel` (`src/model.py`): Defines the wrapper around the Hugging Face model.
+    *   `Trainer` (`src/trainer.py`): Manages the training loop, validation, optimization, and evaluation.
+*   **Utility Functions:** Provides helpers (`src/utils.py`) for reading and parsing CONLL-U files.
 
-## Features
+### 🛠️ Technologies Used
 
-- Uses a pretrained BERT model fine-tuned for POS tagging.
-- Processes data in CONLL-U format.
-- Implements a custom `BertPOSDataset` for efficient data loading and tokenization.
-- Uses a `Trainer` class for modular training and evaluation.
-- Saves the trained model for future use.
+*   Python 3.7+
+*   PyTorch
+*   Hugging Face `transformers`
+*   Tqdm (for progress bars)
+*   *(Add any other specific libraries used, e.g., `numpy`)*
 
-## Requirements
+### ⚙️ Setup & Installation
 
-- `torch`
-- `transformers`
-- `tqdm`
-
-You can install the required dependencies by running:
-
-```bash
-pip install -r requirements.txt
-```
-
-## How to Run
-If you'd like to try out my projects, follow these steps:
-
-1. Clone the repository to your local machine:
+1.  **Clone the repository:**
     ```bash
     git clone https://github.com/kanincityy/bert_pos.git
+    cd bert_pos
     ```
-2. Navigate to the specific project's directory:
-    ```bash
-    cd <bert_pos>
-    ```
-3. Create a virtual environment (recommended):
+2.  **Create and activate a virtual environment (recommended):**
     ```bash
     python -m venv venv
-    source venv/bin/activate  # On Linux/macOS
-    venv\Scripts\activate  # On Windows
+    # On Linux/macOS:
+    source venv/bin/activate
+    # On Windows:
+    # venv\Scripts\activate
     ```
-4. Install the required dependencies:
+3.  **Install requirements:**
     ```bash
     pip install -r requirements.txt
     ```
-5. Place your CoNLL-U data: Ensure train.conllu and dev.conllu are in the data/ directory.
-6. Run the training script:
-    ```bash
-    python src/main.py
-    ```
-    This will train the BERT POS tagging model and save it to models/pos_tagging_model.pth.
+4.  **Prepare Data:** Ensure your training (`train.conllu`) and development (`dev.conllu`) files are placed inside the `data/` directory.
 
-## Contributing 
+### ▶️ Usage
 
-This project is a reflection of my learning, but feel free to fork the repository and contribute if you have ideas or improvements!
+Run the main training script from the **root** directory of the project:
 
-## License 
+```bash
+python src/main.py
+```
 
-This repository is licensed under the MIT License. See the LICENSE file for details.
+This script will:
+
+1.  Load and preprocess the CONLL-U data from the `data/` directory using `BertPOSDataset`.
+2.  Load the pre-trained BERT tokenizer and the `BertPOSModel`.
+3.  Instantiate the `Trainer`.
+4.  Fine-tune the model on the training data (`train.conllu`).
+5.  Evaluate the model on the development set (`dev.conllu`) during/after training.
+6.  Save the final trained model weights to `models/pos_tagging_model.pth`.
+
+### 📁 Project Structure
+
+```
+.
+├── data/               # Contains CONLL-U format data files (e.g., train.conllu, dev.conllu)
+├── models/             # Stores the saved trained model checkpoint (output of main.py)
+├── src/                # Source code directory
+│   ├── dataset.py      # Custom PyTorch Dataset class for CONLL-U
+│   ├── model.py        # Custom PyTorch BERT model class
+│   ├── trainer.py      # Training and evaluation logic class
+│   ├── utils.py        # Utility functions (e.g., CONLL-U reader)
+│   └── main.py         # Main script to run training & evaluation
+├── requirements.txt    # Project dependencies
+├── .gitignore          # Git ignore file
+├── LICENSE             # MIT License file
+└── README.md           # This file
+```
+
+### 📄 License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
 
 ---
 
