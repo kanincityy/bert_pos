@@ -6,7 +6,7 @@ This project utilises PyTorch and Hugging Face libraries (`transformers`, `datas
 
 ---
 
-### ✨ Key Features & Implementation Details
+### Key Features & Implementation Details
 
 *   **Task:** Part-of-Speech (POS) Tagging on the token level.
 *   **Model:** Leverages a pre-trained BERT model fine-tuned specifically for token classification using `BertForTokenClassification` from the Hugging Face `transformers` library.
@@ -25,7 +25,7 @@ This project utilises PyTorch and Hugging Face libraries (`transformers`, `datas
 *   Tqdm (for progress bars)
 *   *(Add any other specific libraries used, e.g., `numpy`)*
 
-### ⚙️ Setup & Installation
+### Setup & Installation
 
 1.  **Clone the repository:**
     ```bash
@@ -46,7 +46,7 @@ This project utilises PyTorch and Hugging Face libraries (`transformers`, `datas
     ```
 4.  **Prepare Data:** Ensure your training (`train.conllu`) and development (`dev.conllu`) files are placed inside the `data/` directory.
 
-### ▶️ Usage
+### Usage
 
 Run the main training script from the **root** directory of the project:
 
@@ -63,7 +63,7 @@ This script will:
 5.  Evaluate the model on the development set (`dev.conllu`) during/after training.
 6.  Save the final trained model weights to `models/pos_tagging_model.pth`.
 
-### 📁 Project Structure
+### Project Structure
 
 ```
 .
@@ -81,7 +81,7 @@ This script will:
 └── README.md           # This file
 ```
 
-### 📄 License
+### License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
 
