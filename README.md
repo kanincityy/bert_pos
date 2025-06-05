@@ -1,20 +1,20 @@
-# 🧠 Fine-Tuning BERT for Part-of-Speech Tagging (CONLL-U)
+# Fine-Tuning BERT for Part-of-Speech Tagging (CONLL-U)
 
 This project implements a **Part-of-Speech (POS) tagging model** using `bert-base-uncased`, fine-tuned for **token-level classification** on linguistic data in **CONLL-U format**.
 
 Built using **PyTorch** and **Hugging Face Transformers**, the system aligns tokens and labels with custom dataset loaders and training logic, enabling robust experimentation on POS tagging tasks.
 
-> 📘 Project created as part of my MSc coursework in Computational Linguistics @ UCL.
+> Project created as part of my MSc coursework in Computational Linguistics @ UCL.
 
 ---
 
-## 🎯 Objective
+## Objective
 
 To build a reusable and interpretable token classification pipeline using a pre-trained Transformer for **grammatical structure prediction** — a foundational task in NLP pipelines, especially for **downstream parsing, NER, and language modeling**.
 
 ---
 
-## 🛠️ Technologies Used
+## 🛠Technologies Used
 
 | Category        | Libraries/Tools                         |
 |------------------|------------------------------------------|
@@ -25,20 +25,20 @@ To build a reusable and interpretable token classification pipeline using a pre-
 
 ---
 
-## 🧩 Key Features
+## Key Features
 
-- ✅ Fine-tunes `bert-base-uncased` using `BertForTokenClassification`  
-- ✅ Processes **CONLL-U** data with token/label alignment logic  
-- ✅ Implements modular custom classes:
+- Fine-tunes `bert-base-uncased` using `BertForTokenClassification`  
+- Processes **CONLL-U** data with token/label alignment logic  
+- Implements modular custom classes:
   - `BertPOSDataset` – loads and aligns tokenized data with POS tags
   - `BertPOSModel` – wraps the BERT model for token classification
   - `Trainer` – handles training, evaluation, and metrics
   - `utils.py` – parses CONLL-U and supports I/O operations  
-- ✅ Saves model checkpoints for reuse or transfer learning
+- Saves model checkpoints for reuse or transfer learning
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 .
@@ -58,7 +58,7 @@ To build a reusable and interpretable token classification pipeline using a pre-
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 1. Clone the repo:
 ```
@@ -86,7 +86,7 @@ This will:
 
 ---
 
-## 📌 Why POS Tagging
+## Why POS Tagging
 
 While often considered a foundational task, POS tagging remains critical for:
 - Syntactic analysis in low-resource or morphologically rich languages
