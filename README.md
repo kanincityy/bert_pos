@@ -14,7 +14,7 @@ To build a reusable and interpretable token classification pipeline using a pre-
 
 ---
 
-## 🛠Technologies Used
+## Technologies Used
 
 | Category        | Libraries/Tools                         |
 |------------------|------------------------------------------|
